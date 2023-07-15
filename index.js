@@ -15,18 +15,16 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-// app.use(function (req, res, next) {
+app.use(function (req, res, next) {
 
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
-// })
+})
 
 const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
 
-mongoose.connect(connectionStr, {  
-    useNewUrlParser: true,
-});
+mongoose.connect(connectionStr);
 
 mongoose.connection.on('error', error => {
     console.error(`could not connect to database, error = `, error.message)

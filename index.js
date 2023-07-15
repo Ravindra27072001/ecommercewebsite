@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 // })
 
-const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/'
+const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
 
 mongoose.connect(connectionStr, {  

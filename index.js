@@ -13,7 +13,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use(express.static('public'));
+
 
 
 
@@ -30,6 +30,8 @@ mongoose.connection.on('error', error => {
 mongoose.connection.on('open', function() {
     console.error(`connected to database`)
 })
+
+app.use(express.static('public'));
 
 app.use(function (req, res, next) {
 

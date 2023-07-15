@@ -15,11 +15,7 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-app.use(function (req, res, next) {
 
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-
-})
 
 const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
@@ -33,6 +29,12 @@ mongoose.connection.on('error', error => {
 
 mongoose.connection.on('open', function() {
     console.error(`connected to database`)
+})
+
+app.use(function (req, res, next) {
+
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+
 })
 
 

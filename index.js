@@ -15,11 +15,11 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-// app.use(function (req, res, next) {
+app.use(function (req, res, next) {
 
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
-// })
+})
 
 const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/'
 

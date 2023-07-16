@@ -47,14 +47,14 @@ app.use(function (req, res, next) {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    // console.log(email, password);
+    console.log(email, password);
 
     try {
         const result = await User.findOne({ email, password });
-        // console.log(result);
+        console.log("result",result);
 
         if (result == null) {
-            // console.log("object")
+            console.log("object")
             res.status(401).json({
                 message: "Invalid credentials"
             })
@@ -78,7 +78,7 @@ app.post('/register', async (req, res) => {
 
     const { name, email, password } = req.body;
 
-    // console.log(name, email, password)
+    console.log(name, email, password)
 
     try {
         const user = new User({
@@ -89,7 +89,7 @@ app.post('/register', async (req, res) => {
 
         const data = await User.findOne({ email });
 
-        // console.log(data);
+        console.log("data",data);
         if (data == null) {
             User.insertMany([user]);
             res.send({

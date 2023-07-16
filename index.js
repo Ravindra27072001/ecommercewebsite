@@ -37,9 +37,16 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.use(function (req, res, next) {
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-})
+app.use(function(req, res, next) {
+    var filePath = path.join(process.cwd(), 'public', req.url);
+  
+    if (path.extname(filePath) === '.js') {
+      res.set('Content-Type', 'text/javascript');
+    }
+  
+    res.sendFile(filePath);
+  });
+  
 
 
 app.post('api/login', async (req, res) => {

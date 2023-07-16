@@ -19,6 +19,8 @@ app.use(express.static('public'));
 
 
 console.log(process.env.PORT);
+console.log(process.env.abd);
+// console.log(process.env);
 
 const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
@@ -37,7 +39,7 @@ mongoose.connection.on('open', function () {
 
 app.use(function (req, res, next) {
     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-    console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
+    next();
 })
 
 

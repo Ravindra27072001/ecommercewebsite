@@ -15,7 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 
 console.log(process.env.PORT);

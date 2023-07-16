@@ -34,7 +34,7 @@ mongoose.connection.on('open', function() {
     console.error(`connected to database`)
 })
 
-
+console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
 
 app.use(function (req, res, next) {
 

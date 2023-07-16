@@ -47,6 +47,7 @@ app.use(function (req, res, next) {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
+    console.log("efhdjfhbdf")
     console.log(email, password);
 
     try {
@@ -185,6 +186,8 @@ app.delete("/deleteCartItem/:id", async (req, res) => {
     }
 })
 
+
+console.log(process.env.PORT)
 
 
 const PORT = process.env.PORT || 3000;

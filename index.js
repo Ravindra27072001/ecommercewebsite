@@ -43,8 +43,6 @@ app.use(function (req, res, next) {
 })
 
 
-
-
 app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
 

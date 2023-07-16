@@ -15,6 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
+app.use(express.static('public'));
 
 
 console.log(process.env.PORT);
@@ -33,7 +34,7 @@ mongoose.connection.on('open', function() {
     console.error(`connected to database`)
 })
 
-app.use(express.static('public'));
+
 
 app.use(function (req, res, next) {
 
@@ -75,7 +76,7 @@ app.post('/api/login', async (req, res) => {
 
 })
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
 
     const { name, email, password } = req.body;
 
@@ -111,7 +112,7 @@ app.post('/register', async (req, res) => {
     }
 })
 
-app.post('/addToCart', async (req, res) => {
+app.post('/api/addToCart', async (req, res) => {
     const { id, email, itemNumber, title, price, discountPercentage, description, category, thumbnail, rating } = req.body;
     try {
         const data = await Cart.find({ id });
@@ -151,7 +152,7 @@ app.post('/addToCart', async (req, res) => {
 })
 
 
-app.get("/cart/:email", async (req, res) => {
+app.get("/api/cart/:email", async (req, res) => {
     // console.log(req.params['email']);
 
     try {
@@ -168,7 +169,7 @@ app.get("/cart/:email", async (req, res) => {
     }
 })
 
-app.delete("/deleteCartItem/:id", async (req, res) => {
+app.delete("/api/deleteCartItem/:id", async (req, res) => {
     // console.log(req.params['id']);
     try {
         const data = await Cart.deleteOne({ id: req.params['id'] });
@@ -187,7 +188,7 @@ app.delete("/deleteCartItem/:id", async (req, res) => {
 })
 
 
-console.log(process.env.PORT)
+// console.log(process.env.PORT)
 
 
 const PORT = process.env.PORT || 3000;

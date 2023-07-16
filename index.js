@@ -186,11 +186,11 @@ app.delete("/api/deleteCartItem/:id", async (req, res) => {
 })
 
 
-console.log(process.env.PORT)
+// console.log(process.env.PORT)
 
 
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-    console.log("Lisdmsamdmdntening on port", PORT)
+    console.log("Listening on port", PORT)
 })

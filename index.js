@@ -41,20 +41,20 @@ mongoose.connection.on('open', function () {
 })
 
 
-// app.use(function (req, res, next) {
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-// })
+app.get('*', function (req, res) {
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+})
 
-app.use(function(req, res, next) {
-    console.log(req.url, "req.url")
-    var filePath = path.join(process.cwd(), 'public', 'index.html');
+// app.use(function(req, res, next) {
+//     console.log(req.url, "req.url")
+//     var filePath = path.join(process.cwd(), 'public', 'index.html');
   
-    if (path.extname(filePath) === '.js') {
-      res.set('Content-Type', 'text/javascript');
-    }
+//     if (path.extname(filePath) === '.js') {
+//       res.set('Content-Type', 'text/javascript');
+//     }
   
-    res.sendFile(filePath);
-  });
+//     res.sendFile(filePath);
+//   });
 
 
 app.post('/api/login', async (req, res) => {

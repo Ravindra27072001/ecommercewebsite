@@ -42,6 +42,7 @@ mongoose.connection.on('open', function () {
 // })
 
 app.use(function(req, res, next) {
+    console.log(req.url, "req.url")
     var filePath = path.join(process.cwd(), 'public', 'index.html');
   
     if (path.extname(filePath) === '.js') {

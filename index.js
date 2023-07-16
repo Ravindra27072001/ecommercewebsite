@@ -35,17 +35,13 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.use(function (req, res, next) {
+// app.use(function (req, res, next) {
+//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+//     console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
+// })
 
 
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-    console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
-
-
-})
-
-
-app.post('/login', async (req, res) => {
+app.post('api/login', async (req, res) => {
     const { email, password } = req.body;
 
     console.log("efhdjfhbdf")

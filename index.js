@@ -33,13 +33,13 @@ mongoose.connection.on('open', function() {
     console.error(`connected to database`)
 })
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.use(function (req, res, next) {
+// app.use(function (req, res, next) {
 
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
-})
+// })
 
 
 

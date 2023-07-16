@@ -41,9 +41,9 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.get('*', function (req, res) {
+app.use(function (req, res, next) {
     console.log(req.url);
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 })
 
 // app.use(function(req, res, next) {

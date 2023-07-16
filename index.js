@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const path = require('path')
+
 
 const User = require("./schemas/user");
 const Cart = require("./schemas/cart");
@@ -15,7 +17,7 @@ app.use(cors())
 
 
 
-
+console.log(process.env.PORT);
 
 const connectionStr = 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
@@ -185,7 +187,7 @@ app.delete("/deleteCartItem/:id", async (req, res) => {
 
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log("Listening on port", PORT)

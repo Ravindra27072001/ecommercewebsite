@@ -15,7 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 console.log(process.env.PORT);
@@ -43,7 +43,7 @@ mongoose.connection.on('open', function () {
 
 app.get('*', function (req, res) {
     console.log(req.url);
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
 // app.use(function(req, res, next) {

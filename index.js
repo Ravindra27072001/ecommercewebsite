@@ -30,13 +30,14 @@ mongoose.connection.on('error', error => {
     process.exit(1);
 })
 
-mongoose.connection.on('open', function() {
-    console.error(`connected to database`)
+mongoose.connection.on('open', function () {
+    console.error(`successfully connected to database`)
 })
 
-console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
 
 app.use(function (req, res, next) {
+
+    console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
 
     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
@@ -51,7 +52,7 @@ app.post('/api/login', async (req, res) => {
 
     try {
         const result = await User.findOne({ email, password });
-        console.log("result",result);
+        console.log("result", result);
 
         if (result == null) {
             console.log("object")
@@ -89,7 +90,7 @@ app.post('/api/register', async (req, res) => {
 
         const data = await User.findOne({ email });
 
-        console.log("data",data);
+        console.log("data", data);
         if (data == null) {
             User.insertMany([user]);
             res.send({

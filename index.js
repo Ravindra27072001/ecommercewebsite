@@ -15,7 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 
 console.log(process.env.PORT);
@@ -35,10 +35,10 @@ mongoose.connection.on('open', function () {
 })
 
 
-// app.use(function (req, res, next) {
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-//     console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
-// })
+app.use(function (req, res, next) {
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+    console.log("fjvjdbsdbvsbdvvhbsdjvbhj")
+})
 
 
 app.post('api/login', async (req, res) => {

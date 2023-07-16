@@ -33,18 +33,18 @@ mongoose.connection.on('open', function() {
     console.error(`connected to database`)
 })
 
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
-// app.use(function (req, res, next) {
+app.use(function (req, res, next) {
 
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
-// })
-
-
+})
 
 
-app.post('/login', async (req, res) => {
+
+
+app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
 
     console.log("efhdjfhbdf")

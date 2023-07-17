@@ -15,7 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use(express.static('public'));
+app.use(express.static('public', 'index.html'));
 
 
 
@@ -43,9 +43,9 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-})
+// app.get('*', function (req, res) {
+//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+// })
 
 // app.use(function(req, res, next) {
 //     console.log(req.url, "req.url")
@@ -202,10 +202,10 @@ app.delete("/api/deleteCartItem/:id", async (req, res) => {
 })
 
 
-// console.log(process.env.PORT)
+console.log(process.env.PORT)
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log("Listening on port", PORT)

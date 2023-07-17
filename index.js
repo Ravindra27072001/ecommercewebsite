@@ -57,7 +57,7 @@ app.use(function (req, res, next) {
 //   });
 
 
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     console.log("efhdjfhbdf")

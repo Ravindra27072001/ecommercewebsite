@@ -18,18 +18,19 @@ app.use(cors())
 app.use(express.static('public'));
 
 
-console.log(process.env.PORT);
+
 // console.log(process.env);
 
 const {NODE_ENV, DB_HOST, DB_NAME, DB_USER, DB_PASSWORD} = process.env
 
-// console.log(NODE_ENV,DB_USER,DB_HOST,DB_NAME,DB_PASSWORD)
+console.log(NODE_ENV,DB_USER,DB_HOST,DB_NAME,DB_PASSWORD)
+
 
 // const connectionStr = NODE_ENV === 'development' ? 'mongodb+srv://ecommercewebsite:Rathore123@cluster0.ggxs2nz.mongodb.net/?retryWrites=true&w=majority'
 
 const connectionStr = NODE_ENV === 'development' ? `mongodb://${DB_HOST}/${DB_NAME}` : `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/?retryWrites=true&w=majority`
 
-mongoose.connect(connectionStr); 
+mongoose.connect(connectionStr)
 
 mongoose.connection.on('error', error => {
     console.error(`could not connect to database, error = `, error.message)
@@ -38,6 +39,7 @@ mongoose.connection.on('error', error => {
 
 mongoose.connection.on('open', function () {
     console.error(`successfully connected to database`)
+    // console.log(process.env);
 })
 
 

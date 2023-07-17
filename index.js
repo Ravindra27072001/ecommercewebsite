@@ -15,7 +15,7 @@ app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use(express.static('public', 'index.html'));
+app.use(express.static('public'));
 
 
 

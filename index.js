@@ -43,9 +43,6 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-})
 
 // app.use(function(req, res, next) {
 //     console.log(req.url, "req.url")
@@ -201,6 +198,11 @@ app.delete("/api/deleteCartItem/:id", async (req, res) => {
     }
 })
 
+app.use(express.static('public'));
+
+app.get('*', function (req, res) {
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+})
 
 console.log(process.env.PORT)
 

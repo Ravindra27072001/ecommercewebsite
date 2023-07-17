@@ -43,7 +43,7 @@ mongoose.connection.on('open', function () {
 })
 
 
-app.use(function (req, res) {
+app.get('*', function (req, res) {
     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 })
 

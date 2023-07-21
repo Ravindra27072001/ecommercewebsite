@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(bodyParser.json())
 app.use(cors())
-// app.use(express.static(path.join(process.cwd(), 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 
 
@@ -201,12 +201,12 @@ app.delete("/api/deleteCartItem/:id", async (req, res) => {
 
 
 
-// app.use(function (req, res, next) {
+app.use(function (req, res, next) {
 
-//     console.log(req.url);
-//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+    console.log(req.url);
+    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 
-// })
+})
 
 console.log(process.env.PORT)
 
